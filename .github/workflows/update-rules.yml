@@ -1,0 +1,157 @@
+name: Update SRS Rule Sets
+
+on:
+  schedule:
+    # 每天 UTC 00:00 (北京时间 08:00) 自动更新
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 支持手动触发
+  push:
+    branches:
+      - main
+
+jobs:
+  update-rules:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+      
+      - name: Install dependencies
+        run: |
+          # 安装 sing-box 工具
+          go install github.com/sagernet/sing-box/cmd/sing-box@latest
+          
+          # 下载 geoview 工具
+          wget -q https://github.com/metacubex/geo/releases/latest/download/geoview-linux-amd64 -O geoview
+          chmod +x geoview
+          sudo mv geoview /usr/local/bin/
+      
+      - name: Download source files
+        run: |
+          mkdir -p source compiled
+          
+          echo "📥 下载 geosite.dat..."
+          wget -q "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat" -O source/geosite.dat || \
+            wget -q "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" -O source/geosite.dat
+          
+          echo "📥 下载 geoip.dat..."
+          wget -q "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat" -O source/geoip.dat || \
+            wget -q "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" -O source/geoip.dat
+          
+          echo "📥 下载 chnlist..."
+          wget -q "https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/accelerated-domains.china.conf" -O source/chnlist.txt || \
+            wget -q "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf" -O source/chnlist.txt
+          
+          echo "📥 下载 chnlist-apple..."
+          wget -q "https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/apple.china.conf" -O source/chnlist-apple.txt || \
+            wget -q "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf" -O source/chnlist-apple.txt
+          
+          echo "📥 下载 chnlist-google..."
+          wget -q "https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/google.china.conf" -O source/chnlist-google.txt || \
+            wget -q "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf" -O source/chnlist-google.txt
+          
+          echo "📥 下载 gfwlist..."
+          wget -q "https://cdn.jsdelivr.net/gh/gfwlist/gfwlist@master/gfwlist.txt" -O source/gfwlist.txt || \
+            wget -q "https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" -O source/gfwlist.txt
+          
+          echo "📥 下载 chnroute..."
+          wget -q "https://cdn.jsdelivr.net/gh/misakaio/chnroutes2@master/chnroutes.txt" -O source/chnroute.txt || \
+            wget -q "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" -O source/chnroute.txt
+          
+          echo "📥 下载 chnroute6..."
+          wget -q "https://cdn.jsdelivr.net/gh/misakaio/chnroutes2@master/chnroutes6.txt" -O source/chnroute6.txt || \
+            wget -q "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes6.txt" -O source/chnroute6.txt
+          
+          echo "✅ 所有源文件下载完成"
+      
+      - name: Setup converter
+        run: |
+          # 创建 Go 项目
+          cat > go.mod << 'EOF'
+          module srs-converter
+
+          go 1.21
+
+          require (
+            github.com/sagernet/sing-box v1.9.0
+          )
+          EOF
+          
+          go mod tidy
+      
+      - name: Convert to SRS
+        run: |
+          # 运行转换脚本
+          go run scripts/convert.go
+      
+      - name: Generate metadata
+        run: |
+          # 生成元数据
+          go run scripts/generate-metadata.go > compiled/metadata.json
+      
+      - name: Commit and push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # 添加所有编译后的文件
+          git add compiled/*.srs compiled/metadata.json
+          
+          # 检查是否有变更
+          if git diff --staged --quiet; then
+            echo "📝 没有规则更新"
+            exit 0
+          fi
+          
+          # 提交变更
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          git commit -m "🤖 自动更新规则集 - ${TIMESTAMP}"
+          
+          # 推送到仓库
+          git push
+          
+          echo "✅ 规则集已更新并推送"
+      
+      - name: Create release
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Release v${{ github.run_number }}
+          body: |
+            🤖 自动生成的规则集发布
+            
+            **更新时间**: ${{ github.event.head_commit.timestamp }}
+            **包含规则**:
+            - chnlist.srs (中国域名白名单)
+            - chnlist-all.srs (合并版中国域名)
+            - gfwlist.srs (GFW 域名列表)
+            - chnroute.srs (中国 IPv4 路由)
+            - chnroute6.srs (中国 IPv6 路由)
+            
+            **使用方法**:
+            ```json
+            {
+              "rule_set": [
+                {
+                  "tag": "chnlist",
+                  "type": "remote",
+                  "format": "binary",
+                  "url": "https://github.com/star8618/srs-rules/releases/latest/download/chnlist.srs"
+                }
+              ]
+            }
+            ```
+          files: |
+            compiled/*.srs
+            compiled/metadata.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

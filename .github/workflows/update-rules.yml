@@ -27,14 +27,9 @@ jobs:
       - name: Setup Go dependencies
         run: |
           # 使用仓库中的 go.mod 和 go.sum（已升级到 v1.12.9）
+          echo "📥 下载 Go 依赖..."
           go mod download
-      
-      - name: Install tools
-        run: |
-          # 下载 geoview 工具
-          wget -q https://github.com/metacubex/geo/releases/latest/download/geoview-linux-amd64 -O geoview
-          chmod +x geoview
-          sudo mv geoview /usr/local/bin/
+          echo "✅ Go 依赖下载完成"
       
       - name: Download source files
         run: |
@@ -132,7 +127,7 @@ jobs:
                   "tag": "chnlist",
                   "type": "remote",
                   "format": "binary",
-                  "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist.srs"
+                  "url": "https://github.com/star8618/srs-rules/releases/latest/download/chnlist.srs"
                 }
               ]
             }

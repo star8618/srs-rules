@@ -22,7 +22,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.21'
+          go-version: '1.23'
       
       - name: Install dependencies
         run: |
@@ -74,9 +74,8 @@ jobs:
       
       - name: Setup converter
         run: |
-          # 使用仓库中的 go.mod
+          # 使用仓库中的 go.mod 和 go.sum（已升级到 v1.12.9）
           go mod download
-          go mod tidy
       
       - name: Convert to SRS
         run: |
@@ -136,7 +135,7 @@ jobs:
                   "tag": "chnlist",
                   "type": "remote",
                   "format": "binary",
-                  "url": "https://github.com/star8618/srs-rules/releases/latest/download/chnlist.srs"
+                  "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist.srs"
                 }
               ]
             }
@@ -146,3 +145,4 @@ jobs:
             compiled/metadata.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

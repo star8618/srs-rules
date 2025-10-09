@@ -268,7 +268,7 @@ func writeSRS(outputPath string, domains []string, ipCidrs []string) error {
 				DefaultOptions: headlessRule,
 			},
 		},
-	}, 1)
+	})
 
 	if err != nil {
 		return err

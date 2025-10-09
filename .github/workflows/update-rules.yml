@@ -135,7 +135,7 @@ jobs:
                   "tag": "chnlist",
                   "type": "remote",
                   "format": "binary",
-                  "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist.srs"
+                  "url": "https://github.com/star8618/srs-rules/releases/latest/download/chnlist.srs"
                 }
               ]
             }

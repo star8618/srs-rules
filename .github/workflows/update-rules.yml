@@ -36,36 +36,54 @@ jobs:
           mkdir -p source compiled
           
           echo "📥 下载 geosite.dat..."
-          wget -q "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat" -O source/geosite.dat || \
-            wget -q "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" -O source/geosite.dat
+          wget "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" -O source/geosite.dat || \
+            wget "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat" -O source/geosite.dat || \
+            wget "https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat" -O source/geosite.dat || \
+            wget "https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat" -O source/geosite.dat || \
+            echo "⚠️ geosite.dat 下载失败（不影响文本规则转换）"
           
           echo "📥 下载 geoip.dat..."
-          wget -q "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat" -O source/geoip.dat || \
-            wget -q "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" -O source/geoip.dat
+          wget "https://github.com/Loyalsoldier/geoip/releases/latest/download/geoip.dat" -O source/geoip.dat || \
+            wget "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip.dat" -O source/geoip.dat || \
+            wget "https://fastly.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip.dat" -O source/geoip.dat || \
+            wget "https://testingcf.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip.dat" -O source/geoip.dat || \
+            echo "⚠️ geoip.dat 下载失败（不影响文本规则转换）"
           
           echo "📥 下载 chnlist..."
-          wget -q "https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/accelerated-domains.china.conf" -O source/chnlist.txt || \
-            wget -q "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf" -O source/chnlist.txt
+          wget "https://fastly.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/accelerated-domains.china.conf" -O source/chnlist.txt || \
+            wget "https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/accelerated-domains.china.conf" -O source/chnlist.txt || \
+            wget "https://testingcf.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/accelerated-domains.china.conf" -O source/chnlist.txt || \
+            wget "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf" -O source/chnlist.txt
           
           echo "📥 下载 chnlist-apple..."
-          wget -q "https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/apple.china.conf" -O source/chnlist-apple.txt || \
-            wget -q "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf" -O source/chnlist-apple.txt
+          wget "https://fastly.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/apple.china.conf" -O source/chnlist-apple.txt || \
+            wget "https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/apple.china.conf" -O source/chnlist-apple.txt || \
+            wget "https://testingcf.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/apple.china.conf" -O source/chnlist-apple.txt || \
+            wget "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf" -O source/chnlist-apple.txt
           
           echo "📥 下载 chnlist-google..."
-          wget -q "https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/google.china.conf" -O source/chnlist-google.txt || \
-            wget -q "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf" -O source/chnlist-google.txt
+          wget "https://fastly.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/google.china.conf" -O source/chnlist-google.txt || \
+            wget "https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/google.china.conf" -O source/chnlist-google.txt || \
+            wget "https://testingcf.jsdelivr.net/gh/felixonmars/dnsmasq-china-list@master/google.china.conf" -O source/chnlist-google.txt || \
+            wget "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf" -O source/chnlist-google.txt
           
           echo "📥 下载 gfwlist..."
-          wget -q "https://cdn.jsdelivr.net/gh/gfwlist/gfwlist@master/gfwlist.txt" -O source/gfwlist.txt || \
-            wget -q "https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" -O source/gfwlist.txt
+          wget "https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/gfw.txt" -O source/gfwlist.txt || \
+            wget "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/gfw.txt" -O source/gfwlist.txt || \
+            wget "https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/gfw.txt" -O source/gfwlist.txt || \
+            wget "https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" -O source/gfwlist.txt
           
           echo "📥 下载 chnroute..."
-          wget -q "https://cdn.jsdelivr.net/gh/misakaio/chnroutes2@master/chnroutes.txt" -O source/chnroute.txt || \
-            wget -q "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" -O source/chnroute.txt
+          wget "https://ispip.clang.cn/all_cn.txt" -O source/chnroute.txt || \
+            wget "https://fastly.jsdelivr.net/gh/misakaio/chnroutes2@master/chnroutes.txt" -O source/chnroute.txt || \
+            wget "https://cdn.jsdelivr.net/gh/misakaio/chnroutes2@master/chnroutes.txt" -O source/chnroute.txt || \
+            wget "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" -O source/chnroute.txt
           
           echo "📥 下载 chnroute6..."
-          wget -q "https://cdn.jsdelivr.net/gh/misakaio/chnroutes2@master/chnroutes6.txt" -O source/chnroute6.txt || \
-            wget -q "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes6.txt" -O source/chnroute6.txt
+          wget "https://ispip.clang.cn/all_cn_ipv6.txt" -O source/chnroute6.txt || \
+            wget "https://fastly.jsdelivr.net/gh/misakaio/chnroutes2@master/chnroutes6.txt" -O source/chnroute6.txt || \
+            wget "https://cdn.jsdelivr.net/gh/misakaio/chnroutes2@master/chnroutes6.txt" -O source/chnroute6.txt || \
+            wget "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes6.txt" -O source/chnroute6.txt
           
           echo "✅ 所有源文件下载完成"
       

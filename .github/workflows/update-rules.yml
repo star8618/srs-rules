@@ -24,11 +24,13 @@ jobs:
         with:
           go-version: '1.23'
       
-      - name: Install dependencies
+      - name: Setup Go dependencies
         run: |
-          # 安装 sing-box 工具
-          go install github.com/sagernet/sing-box/cmd/sing-box@latest
-          
+          # 使用仓库中的 go.mod 和 go.sum（已升级到 v1.12.9）
+          go mod download
+      
+      - name: Install tools
+        run: |
           # 下载 geoview 工具
           wget -q https://github.com/metacubex/geo/releases/latest/download/geoview-linux-amd64 -O geoview
           chmod +x geoview
@@ -71,11 +73,6 @@ jobs:
             wget -q "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes6.txt" -O source/chnroute6.txt
           
           echo "✅ 所有源文件下载完成"
-      
-      - name: Setup converter
-        run: |
-          # 使用仓库中的 go.mod 和 go.sum（已升级到 v1.12.9）
-          go mod download
       
       - name: Convert to SRS
         run: |
@@ -135,7 +132,7 @@ jobs:
                   "tag": "chnlist",
                   "type": "remote",
                   "format": "binary",
-                  "url": "https://github.com/star8618/srs-rules/releases/latest/download/chnlist.srs"
+                  "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist.srs"
                 }
               ]
             }

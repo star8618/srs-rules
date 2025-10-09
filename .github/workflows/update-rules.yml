@@ -74,17 +74,8 @@ jobs:
       
       - name: Setup converter
         run: |
-          # 创建 Go 项目
-          cat > go.mod << 'EOF'
-          module srs-converter
-
-          go 1.21
-
-          require (
-            github.com/sagernet/sing-box v1.9.0
-          )
-          EOF
-          
+          # 使用仓库中的 go.mod
+          go mod download
           go mod tidy
       
       - name: Convert to SRS

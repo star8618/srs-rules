@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2025-11-09T01:11:32.000334909Z",
+  "updated_at": "2025-11-10T01:11:27.205593157Z",
   "rule_sets": [
     {
       "name": "中国域名白名单",
@@ -10,7 +10,7 @@
       "file_size": 535677,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist.srs",
       "description": "中国域名白名单（通用，117K+ 条）",
-      "updated_at": "2025-11-09T01:11:31.107210279Z"
+      "updated_at": "2025-11-10T01:11:26.224823242Z"
     },
     {
       "name": "中国域名白名单（合并版）",
@@ -20,37 +20,37 @@
       "file_size": 538599,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist-all.srs",
       "description": "合并 chnlist + Apple + Google 中国服务",
-      "updated_at": "2025-11-09T01:11:31.536210357Z"
+      "updated_at": "2025-11-10T01:11:26.619823354Z"
     },
     {
       "name": "GFW 域名列表",
       "tag": "gfwlist",
       "type": "domain",
       "format": "binary",
-      "file_size": 41887,
+      "file_size": 41848,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/gfwlist.srs",
       "description": "被 GFW 屏蔽的域名列表（5.9K+ 条）",
-      "updated_at": "2025-11-09T01:11:31.118210281Z"
+      "updated_at": "2025-11-10T01:11:26.235823245Z"
     },
     {
       "name": "中国 IPv4 路由",
       "tag": "chnroute",
       "type": "ip",
       "format": "binary",
-      "file_size": 15301,
+      "file_size": 15295,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnroute.srs",
       "description": "中国 IPv4 地址段（4.2K+ 条）",
-      "updated_at": "2025-11-09T01:11:31.121210282Z"
+      "updated_at": "2025-11-10T01:11:26.239823246Z"
     },
     {
       "name": "中国 IPv6 路由",
       "tag": "chnroute6",
       "type": "ip",
       "format": "binary",
-      "file_size": 6830,
+      "file_size": 6842,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnroute6.srs",
       "description": "中国 IPv6 地址段（1.5K+ 条）",
-      "updated_at": "2025-11-09T01:11:31.153210288Z"
+      "updated_at": "2025-11-10T01:11:26.271823255Z"
     }
   ]
 }

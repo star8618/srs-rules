@@ -1,26 +1,26 @@
 {
   "version": "1.0",
-  "updated_at": "2025-12-19T01:13:22.136387749Z",
+  "updated_at": "2025-12-20T01:09:03.583396876Z",
   "rule_sets": [
     {
       "name": "中国域名白名单",
       "tag": "chnlist",
       "type": "domain",
       "format": "binary",
-      "file_size": 537250,
+      "file_size": 535247,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist.srs",
       "description": "中国域名白名单（通用，117K+ 条）",
-      "updated_at": "2025-12-19T01:13:21.398884491Z"
+      "updated_at": "2025-12-20T01:09:02.39046353Z"
     },
     {
       "name": "中国域名白名单（合并版）",
       "tag": "chnlist-all",
       "type": "domain",
       "format": "binary",
-      "file_size": 540242,
+      "file_size": 538308,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist-all.srs",
       "description": "合并 chnlist + Apple + Google 中国服务",
-      "updated_at": "2025-12-19T01:13:21.787884532Z"
+      "updated_at": "2025-12-20T01:09:02.848464237Z"
     },
     {
       "name": "GFW 域名列表",
@@ -30,27 +30,27 @@
       "file_size": 42101,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/gfwlist.srs",
       "description": "被 GFW 屏蔽的域名列表（5.9K+ 条）",
-      "updated_at": "2025-12-19T01:13:21.409884493Z"
+      "updated_at": "2025-12-20T01:09:02.40346355Z"
     },
     {
       "name": "中国 IPv4 路由",
       "tag": "chnroute",
       "type": "ip",
       "format": "binary",
-      "file_size": 15175,
+      "file_size": 15176,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnroute.srs",
       "description": "中国 IPv4 地址段（4.2K+ 条）",
-      "updated_at": "2025-12-19T01:13:21.413884493Z"
+      "updated_at": "2025-12-20T01:09:02.407463556Z"
     },
     {
       "name": "中国 IPv6 路由",
       "tag": "chnroute6",
       "type": "ip",
       "format": "binary",
-      "file_size": 6908,
+      "file_size": 6919,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnroute6.srs",
       "description": "中国 IPv6 地址段（1.5K+ 条）",
-      "updated_at": "2025-12-19T01:13:21.444884496Z"
+      "updated_at": "2025-12-20T01:09:02.440463607Z"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-03-31T01:52:44.002091368Z",
+  "updated_at": "2026-04-01T02:01:12.232575782Z",
   "rule_sets": [
     {
       "name": "中国域名白名单",
@@ -10,7 +10,7 @@
       "file_size": 557868,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist.srs",
       "description": "中国域名白名单（通用，117K+ 条）",
-      "updated_at": "2026-03-31T01:52:43.3695079Z"
+      "updated_at": "2026-04-01T02:01:11.637457388Z"
     },
     {
       "name": "中国域名白名单（合并版）",
@@ -20,7 +20,7 @@
       "file_size": 560753,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist-all.srs",
       "description": "合并 chnlist + Apple + Google 中国服务",
-      "updated_at": "2026-03-31T01:52:43.80451202Z"
+      "updated_at": "2026-04-01T02:01:12.040456318Z"
     },
     {
       "name": "GFW 域名列表",
@@ -30,27 +30,27 @@
       "file_size": 31115,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/gfwlist.srs",
       "description": "被 GFW 屏蔽的域名列表（5.9K+ 条）",
-      "updated_at": "2026-03-31T01:52:43.379507995Z"
+      "updated_at": "2026-04-01T02:01:11.64445737Z"
     },
     {
       "name": "中国 IPv4 路由",
       "tag": "chnroute",
       "type": "ip",
       "format": "binary",
-      "file_size": 14971,
+      "file_size": 14986,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnroute.srs",
       "description": "中国 IPv4 地址段（4.2K+ 条）",
-      "updated_at": "2026-03-31T01:52:43.382508023Z"
+      "updated_at": "2026-04-01T02:01:11.647457362Z"
     },
     {
       "name": "中国 IPv6 路由",
       "tag": "chnroute6",
       "type": "ip",
       "format": "binary",
-      "file_size": 6983,
+      "file_size": 6991,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnroute6.srs",
       "description": "中国 IPv6 地址段（1.5K+ 条）",
-      "updated_at": "2026-03-31T01:52:43.416508345Z"
+      "updated_at": "2026-04-01T02:01:11.679457277Z"
     }
   ]
 }

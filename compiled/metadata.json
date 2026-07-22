@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-07-21T02:03:37.308442366Z",
+  "updated_at": "2026-07-22T02:02:11.368841048Z",
   "rule_sets": [
     {
       "name": "中国域名白名单",
@@ -10,7 +10,7 @@
       "file_size": 528328,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist.srs",
       "description": "中国域名白名单（通用，117K+ 条）",
-      "updated_at": "2026-07-21T02:03:36.834675377Z"
+      "updated_at": "2026-07-22T02:02:10.760137898Z"
     },
     {
       "name": "中国域名白名单（合并版）",
@@ -20,37 +20,37 @@
       "file_size": 530769,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist-all.srs",
       "description": "合并 chnlist + Apple + Google 中国服务",
-      "updated_at": "2026-07-21T02:03:37.141682243Z"
+      "updated_at": "2026-07-22T02:02:11.195131239Z"
     },
     {
       "name": "GFW 域名列表",
       "tag": "gfwlist",
       "type": "domain",
       "format": "binary",
-      "file_size": 32136,
+      "file_size": 32137,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/gfwlist.srs",
       "description": "被 GFW 屏蔽的域名列表（5.9K+ 条）",
-      "updated_at": "2026-07-21T02:03:36.841675534Z"
+      "updated_at": "2026-07-22T02:02:10.76913776Z"
     },
     {
       "name": "中国 IPv4 路由",
       "tag": "chnroute",
       "type": "ip",
       "format": "binary",
-      "file_size": 15397,
+      "file_size": 15401,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnroute.srs",
       "description": "中国 IPv4 地址段（4.2K+ 条）",
-      "updated_at": "2026-07-21T02:03:36.843675578Z"
+      "updated_at": "2026-07-22T02:02:10.772137714Z"
     },
     {
       "name": "中国 IPv6 路由",
       "tag": "chnroute6",
       "type": "ip",
       "format": "binary",
-      "file_size": 7410,
+      "file_size": 7387,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnroute6.srs",
       "description": "中国 IPv6 地址段（1.5K+ 条）",
-      "updated_at": "2026-07-21T02:03:36.874676272Z"
+      "updated_at": "2026-07-22T02:02:10.809137148Z"
     }
   ]
 }

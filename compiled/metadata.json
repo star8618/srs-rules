@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-07-24T02:05:00.170607138Z",
+  "updated_at": "2026-07-25T02:04:35.622684733Z",
   "rule_sets": [
     {
       "name": "中国域名白名单",
@@ -10,7 +10,7 @@
       "file_size": 528328,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist.srs",
       "description": "中国域名白名单（通用，117K+ 条）",
-      "updated_at": "2026-07-24T02:04:59.613865043Z"
+      "updated_at": "2026-07-25T02:04:35.139169837Z"
     },
     {
       "name": "中国域名白名单（合并版）",
@@ -20,7 +20,7 @@
       "file_size": 530769,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist-all.srs",
       "description": "合并 chnlist + Apple + Google 中国服务",
-      "updated_at": "2026-07-24T02:05:00.007868218Z"
+      "updated_at": "2026-07-25T02:04:35.461176403Z"
     },
     {
       "name": "GFW 域名列表",
@@ -30,27 +30,27 @@
       "file_size": 32179,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/gfwlist.srs",
       "description": "被 GFW 屏蔽的域名列表（5.9K+ 条）",
-      "updated_at": "2026-07-24T02:04:59.622865115Z"
+      "updated_at": "2026-07-25T02:04:35.14717Z"
     },
     {
       "name": "中国 IPv4 路由",
       "tag": "chnroute",
       "type": "ip",
       "format": "binary",
-      "file_size": 15385,
+      "file_size": 15439,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnroute.srs",
       "description": "中国 IPv4 地址段（4.2K+ 条）",
-      "updated_at": "2026-07-24T02:04:59.627865156Z"
+      "updated_at": "2026-07-25T02:04:35.150170062Z"
     },
     {
       "name": "中国 IPv6 路由",
       "tag": "chnroute6",
       "type": "ip",
       "format": "binary",
-      "file_size": 7399,
+      "file_size": 7406,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnroute6.srs",
       "description": "中国 IPv6 地址段（1.5K+ 条）",
-      "updated_at": "2026-07-24T02:04:59.66186543Z"
+      "updated_at": "2026-07-25T02:04:35.181170694Z"
     }
   ]
 }

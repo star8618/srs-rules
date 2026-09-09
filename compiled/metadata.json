@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-09-08T02:32:56.868888862Z",
+  "updated_at": "2026-09-09T02:34:09.008358974Z",
   "rule_sets": [
     {
       "name": "中国域名白名单",
@@ -10,7 +10,7 @@
       "file_size": 522610,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist.srs",
       "description": "中国域名白名单（通用，117K+ 条）",
-      "updated_at": "2026-09-08T02:32:56.257893883Z"
+      "updated_at": "2026-09-09T02:34:08.45605887Z"
     },
     {
       "name": "中国域名白名单（合并版）",
@@ -20,7 +20,7 @@
       "file_size": 524853,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnlist-all.srs",
       "description": "合并 chnlist + Apple + Google 中国服务",
-      "updated_at": "2026-09-08T02:32:56.663900825Z"
+      "updated_at": "2026-09-09T02:34:08.82005684Z"
     },
     {
       "name": "GFW 域名列表",
@@ -30,27 +30,27 @@
       "file_size": 32357,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/gfwlist.srs",
       "description": "被 GFW 屏蔽的域名列表（5.9K+ 条）",
-      "updated_at": "2026-09-08T02:32:56.26589402Z"
+      "updated_at": "2026-09-09T02:34:08.464058826Z"
     },
     {
       "name": "中国 IPv4 路由",
       "tag": "chnroute",
       "type": "ip",
       "format": "binary",
-      "file_size": 15257,
+      "file_size": 15279,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnroute.srs",
       "description": "中国 IPv4 地址段（4.2K+ 条）",
-      "updated_at": "2026-09-08T02:32:56.268894071Z"
+      "updated_at": "2026-09-09T02:34:08.467058809Z"
     },
     {
       "name": "中国 IPv6 路由",
       "tag": "chnroute6",
       "type": "ip",
       "format": "binary",
-      "file_size": 7236,
+      "file_size": 7234,
       "url": "https://github.com/YOUR_USERNAME/srs-rules/releases/latest/download/chnroute6.srs",
       "description": "中国 IPv6 地址段（1.5K+ 条）",
-      "updated_at": "2026-09-08T02:32:56.306894721Z"
+      "updated_at": "2026-09-09T02:34:08.500058625Z"
     }
   ]
 }
